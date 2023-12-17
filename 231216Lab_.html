@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Retrieve User Inputs</title>
+</head>
+
+<body>
+
+    <script>
+
+        var firstInput;
+        var secondInput;
+
+        function getUserInput(promptText) {
+            return prompt(promptText);
+        }
+
+        function retrieveInputs() {
+            firstInput = getUserInput("Enter the first input:");
+            secondInput = getUserInput("Enter the second input:");
+            
+            firstInput = parseFloat(firstInput);
+            secondInput = parseFloat(secondInput);
+            
+            var outputDiv = document.getElementById("output");
+
+            if (firstInput > secondInput) {
+                outputDiv.style.backgroundColor = "lightblue";
+                outputDiv.innerText = firstInput + " > " + secondInput;
+            } else if (firstInput < secondInput) {
+                outputDiv.style.backgroundColor = "orange";
+                outputDiv.innerText = secondInput + " > " + firstInput;
+            } else {
+                outputDiv.style.backgroundColor = "lightyellow";
+                outputDiv.innerText = secondInput + " == " + firstInput;
+            }
+        }
+
+        function showFirstInput() {
+            document.getElementById("output").innerText = "First Input: " + firstInput;
+        }
+
+        function showSecondInput() {
+            document.getElementById("output").innerText = "Second Input: " + secondInput;
+        }
+    </script>
+
+    <button onclick="retrieveInputs()">Retrieve Inputs</button>
+    <button onclick="showFirstInput()">1st button</button>
+    <button onclick="showSecondInput()">2nd button</button>
+    <div id="output"></div>
+</body>
+
+</html>
